@@ -3,34 +3,27 @@
     <v-container class="fluid grid-list-md">
       <v-layout class="row wrap">
         <v-flex v-for="product in products" xs6 :key="product.title">
-          <v-card>
-            <v-img :src="product.pic" class="media" height="300px">
-              <v-container class="fill-height fluid">
-                <v-layout>
-                  <v-flex class="xs12 align-enter flexbox">
-                    <span class="display-1 yellow-text"  v-text="product.title"></span>
-                  </v-flex>
-                </v-layout>
-              </v-container>
-            </v-img>
+          <router-link :to="`product/${product.id}`">
+           <Game :product="product">
             <v-card-actions>
-              <v-btn icon>
-                <v-icon>
-                  mdi-heart
-                </v-icon>
-              </v-btn>
-              <v-btn icon>
-                <v-icon>
-                  mdi-share
-                </v-icon>
-              </v-btn>
-              <v-btn icon>
-                <v-icon>
-                 mdi-cart-plus
-                </v-icon>
-              </v-btn>
-            </v-card-actions>
-          </v-card>
+                <v-btn icon>
+                  <v-icon>
+                    mdi-heart
+                  </v-icon>
+                </v-btn>
+                <v-btn icon>
+                  <v-icon>
+                    mdi-share
+                  </v-icon>
+                </v-btn>
+                <v-btn icon>
+                  <v-icon>
+                  mdi-cart-plus
+                  </v-icon>
+                </v-btn>
+              </v-card-actions>
+            </Game>
+          </router-link>
         </v-flex>
       </v-layout>
     </v-container>
@@ -51,10 +44,12 @@
   </v-layout> -->
 
 <script>
-import { db } from '../plugins/firebase'
+import { db } from '../plugins/firebase';
+import Game from '@/components/game';
 
 export default {
   components: {
+    Game
   },
   data() {
     return {
