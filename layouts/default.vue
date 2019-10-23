@@ -76,6 +76,11 @@ export default {
           icon: 'mdi-shopping',
           title: 'Checkout',
           to: '/Checkout'
+        },
+        {
+          icon: 'mdi-security',
+          title: 'Secret',
+          to: '/Secret'
         }
       ],
       miniVariant: false,
